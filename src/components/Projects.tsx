@@ -1,0 +1,82 @@
+import { motion } from "motion/react";
+import { Terminal, Leaf, ExternalLink } from "lucide-react";
+import { portfolioData } from "../data";
+
+export default function Projects() {
+  return (
+    <section id="projects" className="py-24 relative overflow-hidden bg-black border-y border-zinc-900">
+      {/* Background patterns */}
+      <div className="absolute inset-0 bg-[radial-gradient(#ec489901_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
+      <div className="glow-spot w-[500px] h-[500px] bg-pink-500/3 top-1/4 left-1/4" />
+      <div className="glow-spot w-[400px] h-[400px] bg-pink-500/3 bottom-1/4 right-1/4" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3" id="projects-header">
+          <span className="font-mono text-xs font-semibold tracking-wider text-pink-400 bg-pink-950/20 border border-pink-500/25 px-3.5 py-1 rounded-full">
+            Featured Projects
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-display font-extrabold text-white">
+            My Creative Work
+          </h2>
+          <div className="w-12 h-1 bg-gradient-to-r from-pink-500 to-pink-600 mx-auto rounded-full" />
+        </div>
+
+        {/* Minimal Projects Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto" id="projects-minimal-grid">
+          {portfolioData.projects.map((proj, idx) => (
+            <motion.div 
+              key={proj.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              className="bg-black p-8 rounded-2xl border border-pink-500/10 shadow-sm flex flex-col justify-between hover:shadow-xl hover:shadow-pink-500/5 hover:border-pink-500/30 transition-all duration-300 group" 
+              id={`project-card-${proj.id}`}
+            >
+              <div className="space-y-4 text-left">
+                <div className="flex items-center justify-between">
+                  <div className="p-2.5 rounded-xl bg-pink-950/20 border border-pink-500/20 text-pink-500">
+                    {proj.id === "chat-network" ? <Terminal className="w-5 h-5" /> : <Leaf className="w-5 h-5" />}
+                  </div>
+                </div>
+                <h3 className="font-display font-bold text-xl text-white group-hover:text-pink-400 transition-colors">
+                  {proj.title}
+                </h3>
+                <p className="text-slate-300 font-sans text-sm leading-relaxed font-light">
+                  {proj.description}
+                </p>
+                
+                {/* Tech Badges */}
+                <div className="flex flex-wrap gap-2 pt-2">
+                  {proj.techUsed.map((tech) => (
+                    <span 
+                      key={tech} 
+                      className="px-2.5 py-1 rounded-md text-[10px] font-mono font-medium bg-zinc-900 border border-zinc-800 text-slate-400"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              
+              <div className="pt-8">
+                {proj.liveUrl && (
+                  <a
+                    href={proj.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center space-x-2 px-5 py-3 rounded-full bg-gradient-to-r from-pink-500 to-pink-600 text-white font-sans font-bold text-xs shadow-sm hover:shadow-md shadow-pink-500/10 hover:shadow-pink-500/20 cursor-pointer hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
+                  >
+                    <span>Visit Live Production</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                )}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

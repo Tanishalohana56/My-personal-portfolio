@@ -25,10 +25,14 @@ export default function Footer() {
  
         {/* Links & credit */}
         <div className="flex flex-col items-center md:items-end gap-3 text-center md:text-right font-mono text-[11px] text-slate-400">
-          <p>&copy; {new Date().getFullYear()} Tanisha. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} Tanisha. All rights reserved.
+          </p>
           <p className="flex items-center space-x-1">
             <Terminal className="w-3.5 h-3.5 text-pink-500" />
-            <span>Designed &amp; Engineered with AI Studio</span>
+            <span>
+              Designed & Engineered with AI Studio
+            </span>
           </p>
         </div>
  

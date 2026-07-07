@@ -16,7 +16,7 @@ export default function Navbar({ onDownloadResume }: NavbarProps) {
     { id: "about", label: "About & Education", icon: Award },
     { id: "skills", label: "Skills", icon: Code },
     { id: "experience", label: "Experience", icon: Briefcase },
-    { id: "projects", label: "Interactive Projects", icon: Code },
+    { id: "projects", label: "Projects", icon: Code },
     { id: "contact", label: "Contact", icon: Send },
   ];
 
@@ -27,13 +27,14 @@ export default function Navbar({ onDownloadResume }: NavbarProps) {
 
       // Section tracking
       const scrollPosition = window.scrollY + 120;
-      for (const item of navItems) {
-        const el = document.getElementById(item.id);
+      const ids = ["home", "about", "skills", "experience", "projects", "contact"];
+      for (const id of ids) {
+        const el = document.getElementById(id);
         if (el) {
           const top = el.offsetTop;
           const height = el.offsetHeight;
           if (scrollPosition >= top && scrollPosition < top + height) {
-            setActiveSection(item.id);
+            setActiveSection(id);
           }
         }
       }
@@ -109,8 +110,8 @@ export default function Navbar({ onDownloadResume }: NavbarProps) {
               })}
             </div>
  
-            {/* Resume button */}
-            <div className="hidden md:block" id="nav-resume-wrapper">
+            {/* Action buttons */}
+            <div className="hidden md:flex items-center space-x-3.5" id="nav-actions-wrapper">
               <button
                 onClick={onDownloadResume}
                 className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-pink-500 hover:bg-pink-600 text-white font-sans text-sm font-semibold hover:opacity-95 shadow-md shadow-pink-500/25 cursor-pointer transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
@@ -122,7 +123,7 @@ export default function Navbar({ onDownloadResume }: NavbarProps) {
             </div>
  
             {/* Mobile menu trigger */}
-            <div className="md:hidden flex items-center" id="nav-mobile-trigger">
+            <div className="md:hidden flex items-center shadow-sm" id="nav-mobile-trigger">
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="p-2 rounded-lg text-slate-300 hover:text-white hover:bg-zinc-900 focus:outline-none cursor-pointer"
@@ -165,7 +166,7 @@ export default function Navbar({ onDownloadResume }: NavbarProps) {
                     </button>
                   );
                 })}
-                <div className="pt-4 border-t border-pink-500/20 px-4">
+                <div className="pt-4 border-t border-pink-500/20 px-4 space-y-3">
                   <button
                     onClick={() => {
                       setMobileMenuOpen(false);

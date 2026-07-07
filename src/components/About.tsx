@@ -32,7 +32,7 @@ export default function About() {
                 Who is Tanisha?
               </h3>
               <p className="text-slate-200 font-sans text-sm sm:text-base leading-relaxed font-light">
-                {portfolioData.aboutSummary}
+                I am a Computer Science student at DHA Suffa University passionate about web engineering, data science, and AI. I specialize in building responsive frontends and using data-driven insights to create elegant digital solutions.
               </p>
               <div className="pt-4 border-t border-zinc-900 space-y-2">
                 <div className="flex items-center space-x-3 text-sm text-slate-200">

@@ -15,8 +15,9 @@ export default function Hero() {
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
+    if (titles.length === 0) return;
     let timer: NodeJS.Timeout;
-    const currentFullTitle = titles[titleIndex];
+    const currentFullTitle = titles[titleIndex] || "";
     
     if (isDeleting) {
       timer = setTimeout(() => {
@@ -36,7 +37,7 @@ export default function Hero() {
     }
 
     return () => clearTimeout(timer);
-  }, [typedText, isDeleting, titleIndex]);
+  }, [typedText, isDeleting, titleIndex, titles]);
 
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
@@ -112,7 +113,7 @@ export default function Hero() {
             className="text-slate-200 max-w-xl font-sans text-base sm:text-lg leading-relaxed font-light"
             id="hero-bio"
           >
-            {portfolioData.subtitle}. Combining robust, responsive frontends with a technical data analytics background to craft intelligent applications.
+            Combining robust, responsive frontends with a technical data analytics background to craft intelligent applications.
           </motion.p>
 
           {/* Social Icons & Coordinates */}

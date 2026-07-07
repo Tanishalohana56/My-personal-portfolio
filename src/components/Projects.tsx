@@ -1,6 +1,15 @@
+import React from "react";
 import { motion } from "motion/react";
-import { Terminal, Leaf, ExternalLink } from "lucide-react";
+import { Terminal, Leaf, ExternalLink, Atom, Paintbrush, Activity, Network, BarChart3 } from "lucide-react";
 import { portfolioData } from "../data";
+
+const techIconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  "React.js": Atom,
+  "Tailwind CSS": Paintbrush,
+  "Motion": Activity,
+  "Computer Networks": Network,
+  "Environmental Analytics": BarChart3,
+};
 
 export default function Projects() {
   return (
@@ -39,6 +48,22 @@ export default function Projects() {
                   <div className="p-2.5 rounded-xl bg-pink-950/20 border border-pink-500/20 text-pink-500">
                     {proj.id === "chat-network" ? <Terminal className="w-5 h-5" /> : <Leaf className="w-5 h-5" />}
                   </div>
+                  
+                  {/* Monochrome Tech Stack Icons row */}
+                  <div className="flex items-center space-x-2 text-zinc-600">
+                    {proj.techUsed.map((tech) => {
+                      const IconComponent = techIconMap[tech];
+                      return IconComponent ? (
+                        <div 
+                          key={tech} 
+                          className="p-1.5 rounded-lg bg-zinc-950 border border-zinc-900/60 hover:border-zinc-800 hover:text-zinc-400 transition-all" 
+                          title={tech}
+                        >
+                          <IconComponent className="w-3.5 h-3.5" />
+                        </div>
+                      ) : null;
+                    })}
+                  </div>
                 </div>
                 <h3 className="font-display font-bold text-xl text-white group-hover:text-pink-400 transition-colors">
                   {proj.title}
@@ -47,16 +72,20 @@ export default function Projects() {
                   {proj.description}
                 </p>
                 
-                {/* Tech Badges */}
+                {/* Tech Badges with Monochrome Icons */}
                 <div className="flex flex-wrap gap-2 pt-2">
-                  {proj.techUsed.map((tech) => (
-                    <span 
-                      key={tech} 
-                      className="px-2.5 py-1 rounded-md text-[10px] font-mono font-medium bg-zinc-900 border border-zinc-800 text-slate-400"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+                  {proj.techUsed.map((tech) => {
+                    const IconComponent = techIconMap[tech];
+                    return (
+                      <span 
+                        key={tech} 
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[10px] font-mono font-medium bg-zinc-900 border border-zinc-800 text-slate-400 group-hover:border-zinc-800/80 group-hover:text-slate-300 transition-colors"
+                      >
+                        {IconComponent && <IconComponent className="w-3 h-3 text-zinc-600" />}
+                        <span>{tech}</span>
+                      </span>
+                    );
+                  })}
                 </div>
               </div>
               

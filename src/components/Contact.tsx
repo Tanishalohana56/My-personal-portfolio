@@ -69,10 +69,10 @@ export default function Contact() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3" id="contact-header">
           <span className="font-mono text-xs font-semibold tracking-wider text-pink-400 bg-pink-950/20 border border-pink-500/25 px-3.5 py-1 rounded-full">
-            Inquiries & Connections
+            Direct Channels
           </span>
           <h2 className="text-3xl sm:text-4xl font-display font-extrabold text-white">
-            Get In Touch
+            Initiate Connection
           </h2>
           <div className="w-12 h-1 bg-gradient-to-r from-pink-500 to-pink-600 mx-auto rounded-full" />
         </div>
@@ -82,7 +82,7 @@ export default function Contact() {
           <div className="lg:col-span-5 space-y-6" id="contact-left-col">
             <div className="bg-black p-6 sm:p-8 rounded-2xl border border-pink-500/20 shadow-sm space-y-6 text-left" id="contact-info-card">
               <h3 className="font-display font-bold text-xl text-white">
-                Contact Information
+                Get In Touch
               </h3>
               <p className="text-slate-300 font-sans text-sm leading-relaxed font-light">
                 Whether you want to discuss full-time software development roles, frontend internships, ML dataset analysis, or just say hello, my inbox is always open.
@@ -98,7 +98,7 @@ export default function Contact() {
                     <Mail className="w-5 h-5" />
                   </div>
                   <div className="space-y-0.5">
-                    <span className="block text-[10px] font-mono text-slate-400 uppercase tracking-widest">Email Direct</span>
+                    <span className="block text-[10px] font-mono text-slate-400 uppercase tracking-widest">Email Coordinates</span>
                     <span className="font-sans font-medium text-sm text-slate-300 group-hover:text-pink-400 transition-colors">
                       {portfolioData.socials.email}
                     </span>
@@ -115,7 +115,7 @@ export default function Contact() {
                       <Phone className="w-5 h-5" />
                     </div>
                     <div className="space-y-0.5">
-                      <span className="block text-[10px] font-mono text-slate-400 uppercase tracking-widest">Phone Call</span>
+                      <span className="block text-[10px] font-mono text-slate-400 uppercase tracking-widest">Voice Coordinate</span>
                       <span className="font-sans font-medium text-sm text-slate-300 group-hover:text-pink-400 transition-colors">
                         {portfolioData.socials.phone}
                       </span>
@@ -128,7 +128,7 @@ export default function Contact() {
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div className="space-y-0.5">
-                    <span className="block text-[10px] font-mono text-slate-400 uppercase tracking-widest">Location</span>
+                    <span className="block text-[10px] font-mono text-slate-400 uppercase tracking-widest">Base Operations</span>
                     <span className="font-sans font-medium text-sm text-slate-300">
                       {portfolioData.socials.location}
                     </span>
@@ -138,7 +138,7 @@ export default function Contact() {
 
               {/* Profiles Box */}
               <div className="pt-6 border-t border-zinc-900 space-y-3">
-                <span className="block text-[10px] font-mono text-slate-400 uppercase tracking-widest">Social networks</span>
+                <span className="block text-[10px] font-mono text-slate-400 uppercase tracking-widest">Social Coordinates</span>
                 <div className="flex gap-3">
                   <a
                     href={portfolioData.socials.linkedin}
@@ -170,7 +170,7 @@ export default function Contact() {
                 <div className="flex items-center justify-between border-b border-zinc-900 pb-2">
                   <span className="font-mono text-xs text-slate-400 flex items-center space-x-1">
                     <Database className="w-3.5 h-3.5 text-pink-500" />
-                    <span>In-Browser Message History ({messagesLog.length})</span>
+                    <span>In-Browser Dispatch Log ({messagesLog.length})</span>
                   </span>
                   <button
                     onClick={clearMessagesLog}
@@ -201,59 +201,89 @@ export default function Contact() {
           <div className="lg:col-span-7" id="contact-right-col">
             <div className="bg-black p-6 sm:p-8 rounded-2xl border border-pink-500/20 shadow-sm text-left" id="contact-form-card">
               <h3 className="font-display font-bold text-xl text-white mb-6">
-                Send a Message
+                Transmit Message
               </h3>
 
               <form onSubmit={handleSubmit} className="space-y-5" id="form-contact">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div className="space-y-1.5">
-                    <label className="text-xs text-slate-400 font-mono uppercase tracking-wider">Full Name *</label>
+                  <motion.div 
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{ duration: 0.4, delay: 0.1 }}
+                    className="space-y-1.5"
+                  >
+                    <label className="text-xs text-slate-400 font-mono uppercase tracking-wider">Full Name</label>
                     <input
                       type="text"
                       required
                       value={formState.name}
                       onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                       className="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 font-sans text-sm text-white placeholder-slate-500 focus:bg-black focus:border-pink-500 focus:ring-2 focus:ring-pink-500/10 transition-all"
-                      placeholder="e.g. John Doe"
+                      placeholder="e.g., Tanisha K."
                     />
-                  </div>
-                  <div className="space-y-1.5">
-                    <label className="text-xs text-slate-400 font-mono uppercase tracking-wider">Email Address *</label>
+                  </motion.div>
+                  <motion.div 
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{ duration: 0.4, delay: 0.2 }}
+                    className="space-y-1.5"
+                  >
+                    <label className="text-xs text-slate-400 font-mono uppercase tracking-wider">Email Address</label>
                     <input
                       type="email"
                       required
                       value={formState.email}
                       onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                       className="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 font-sans text-sm text-white placeholder-slate-500 focus:bg-black focus:border-pink-500 focus:ring-2 focus:ring-pink-500/10 transition-all"
-                      placeholder="e.g. email@example.com"
+                      placeholder="e.g., mail@domain.com"
                     />
-                  </div>
+                  </motion.div>
                 </div>
 
-                <div className="space-y-1.5">
+                <motion.div 
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.4, delay: 0.3 }}
+                  className="space-y-1.5"
+                >
                   <label className="text-xs text-slate-400 font-mono uppercase tracking-wider">Subject</label>
                   <input
                     type="text"
                     value={formState.subject}
                     onChange={(e) => setFormState({ ...formState, subject: e.target.value })}
                     className="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 font-sans text-sm text-white placeholder-slate-500 focus:bg-black focus:border-pink-500 focus:ring-2 focus:ring-pink-500/10 transition-all"
-                    placeholder="e.g. Internship Opportunity"
+                    placeholder="How can I help you?"
                   />
-                </div>
+                </motion.div>
 
-                <div className="space-y-1.5">
-                  <label className="text-xs text-slate-400 font-mono uppercase tracking-wider">Message *</label>
+                <motion.div 
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.4, delay: 0.4 }}
+                  className="space-y-1.5"
+                >
+                  <label className="text-xs text-slate-400 font-mono uppercase tracking-wider">Your Message</label>
                   <textarea
                     required
                     rows={4}
                     value={formState.message}
                     onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                     className="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 font-sans text-sm text-white placeholder-slate-500 focus:bg-black focus:border-pink-500 focus:ring-2 focus:ring-pink-500/10 transition-all resize-none"
-                    placeholder="Write your message here..."
+                    placeholder="Draft your message here..."
                   />
-                </div>
+                </motion.div>
 
-                <div className="flex justify-end pt-2">
+                <motion.div 
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.4, delay: 0.5 }}
+                  className="flex justify-end pt-2"
+                >
                   <button
                     type="submit"
                     disabled={isSubmitting || !formState.name || !formState.email || !formState.message}
@@ -261,9 +291,9 @@ export default function Contact() {
                     id="btn-submit-contact"
                   >
                     <Send className="w-4 h-4" />
-                    <span>{isSubmitting ? "Sending..." : "Send Message"}</span>
+                    <span>{isSubmitting ? "Transmitting..." : "Transmit Dispatch"}</span>
                   </button>
-                </div>
+                </motion.div>
               </form>
             </div>
           </div>
@@ -284,8 +314,12 @@ export default function Contact() {
               <CheckCircle className="w-5 h-5" />
             </div>
             <div>
-              <h4 className="font-sans font-bold text-sm text-white">Message Transmitted!</h4>
-              <p className="font-sans text-xs text-emerald-400 mt-0.5">Your message has been captured in local history logs.</p>
+              <h4 className="font-sans font-bold text-sm text-white">
+                Message Transmitted!
+              </h4>
+              <p className="font-sans text-xs text-emerald-400 mt-0.5">
+                Successfully logged on this browser session.
+              </p>
             </div>
           </motion.div>
         )}

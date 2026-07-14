@@ -19,7 +19,7 @@ export default function Footer() {
             </span>
           </div>
           <p className="text-xs font-sans text-slate-400 leading-relaxed font-light">
-            BS Computer Science Student | Frontend Intern & Data Analyst.
+            BS Computer Science Student | Full Stack Intern & Data Analyst.
           </p>
         </div>
  
@@ -30,9 +30,7 @@ export default function Footer() {
           </p>
           <p className="flex items-center space-x-1">
             <Terminal className="w-3.5 h-3.5 text-pink-500" />
-            <span>
-              Designed & Engineered with AI Studio
-            </span>
+            
           </p>
         </div>
  

@@ -105,23 +105,10 @@ export default function Contact() {
                   </div>
                 </a>
 
-                {portfolioData.socials.phone && (
-                  <a
-                    href={`tel:${portfolioData.socials.phone}`}
-                    className="flex items-center space-x-3.5 group cursor-pointer"
-                    id="direct-phone"
-                  >
-                    <div className="p-3 rounded-xl bg-pink-950/20 border border-pink-500/25 text-pink-400 group-hover:bg-pink-950/40 transition-all duration-200">
-                      <Phone className="w-5 h-5" />
-                    </div>
-                    <div className="space-y-0.5">
-                      <span className="block text-[10px] font-mono text-slate-400 uppercase tracking-widest">Voice Coordinate</span>
-                      <span className="font-sans font-medium text-sm text-slate-300 group-hover:text-pink-400 transition-colors">
-                        {portfolioData.socials.phone}
-                      </span>
-                    </div>
-                  </a>
-                )}
+             
+
+          
+                   
 
                 <div className="flex items-center space-x-3.5" id="direct-location">
                   <div className="p-3 rounded-xl bg-zinc-950 border border-zinc-800 text-slate-400">

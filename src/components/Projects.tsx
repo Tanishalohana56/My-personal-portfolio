@@ -39,8 +39,19 @@ export default function Projects() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="bg-black p-8 rounded-2xl border border-pink-500/10 shadow-sm flex flex-col justify-between hover:shadow-xl hover:shadow-pink-500/5 hover:border-pink-500/30 transition-all duration-300 group" 
+              whileHover={{ 
+                scale: 1.03,
+                borderColor: "rgba(236, 72, 153, 0.35)",
+                boxShadow: "0 25px 50px -12px rgba(236, 72, 153, 0.15)"
+              }}
+              transition={{ 
+                opacity: { duration: 0.5, delay: idx * 0.1 },
+                y: { duration: 0.5, delay: idx * 0.1 },
+                scale: { type: "spring", stiffness: 300, damping: 20 },
+                borderColor: { duration: 0.2 },
+                boxShadow: { duration: 0.2 }
+              }}
+              className="bg-black p-8 rounded-2xl border border-pink-500/10 shadow-sm flex flex-col justify-between group" 
               id={`project-card-${proj.id}`}
             >
               <div className="space-y-4 text-left">

@@ -91,7 +91,7 @@ export const portfolioData: PortfolioData = {
     {
       company: "High Tech Software House",
       role: "Frontend Developer Intern",
-      duration: "2025 (Present)",
+      duration: "2025",
       location: "Karachi, Pakistan",
       points: [
         "Developed highly responsive, user-friendly, and lightweight web pages using modern HTML, CSS, and JavaScript standards.",
